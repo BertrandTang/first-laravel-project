@@ -16,5 +16,3 @@
         <p>Aucun article a afficher pour le moment.</p>
     @endif
 @endsection
-
-©
