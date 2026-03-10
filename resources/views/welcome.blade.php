@@ -11,7 +11,7 @@
         @endif
         <x-article
             :title="$article['title']"
-            :description="$article['description']"
+            :description="Str::limit($article['description'], 30, '…')"
         />
     @empty
         <p>Aucun article a afficher pour le moment.</p>
