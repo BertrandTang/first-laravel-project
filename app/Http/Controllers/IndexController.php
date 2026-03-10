@@ -23,7 +23,10 @@ class IndexController extends Controller
             ],
         ];
 
-        return view('welcome', ['articles' => $articles]);
+        return view('welcome', [
+            'name' => 'Bertrand',
+            'articles' => $articles,
+        ]);
     }
 }
 

@@ -3,16 +3,15 @@
 @section('title', 'Accueil')
 
 @section('content')
-    <h2>Bienvenue sur la page d’accueil</h2>
+    <h2>Bienvenue sur le site de {{ $name }}.</h2>
 
-    @if (count($articles) > 0)
-        @foreach ($articles as $article)
-            <x-article
-                :title="$article['title']"
-                :description="$article['description']"
-            />
-        @endforeach
-    @else
+    @forelse ($articles as $article)
+        <x-article
+            :title="$article['title']"
+            :description="$article['description']"
+        />
+    @empty
         <p>Aucun article a afficher pour le moment.</p>
-    @endif
+    @endforelse
 @endsection
+
