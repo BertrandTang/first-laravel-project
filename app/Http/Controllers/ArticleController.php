@@ -9,12 +9,12 @@ class ArticleController extends Controller
 {
     public function show($id): View
     {
-        $article = Article::find($id);
+        $article = Article::findOrFail($id);
 
         return view('pages.article-details', ['article' => $article]);
     }
 
-    public function creer()
+    public function create()
     {
         $articles = [
             [
@@ -38,16 +38,18 @@ class ArticleController extends Controller
         return 'Les 3 articles ont été créés avec succès.';
     }
 
-    public function modifier($id)
+    public function update($id)
     {
-        Article::where('id', $id)->update(['title' => 'Nouveau titre', 'description' => 'Nouvelle description']);
+        $article = Article::findOrFail($id);
+        $article->update(['title' => 'Nouveau titre', 'description' => 'Nouvelle description']);
 
         return 'L\'article a été mis à jour avec succès.';
     }
 
-    public function supprimer($id)
+    public function delete($id)
     {
-        Article::destroy($id);
+        $article = Article::findOrFail($id);
+        $article->delete();
 
         return 'L\'article a été supprimé avec succès.';
     }

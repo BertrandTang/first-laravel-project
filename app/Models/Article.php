@@ -6,8 +6,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class Article extends Model
 {
-protected $table = 'articles';
-public $timestamps = true;
-protected $fillable = ['title', 'description'];
-protected $guarded = ['id'];
+    protected $fillable = ['title', 'description'];
 }
