@@ -1,10 +1,10 @@
 @extends('layouts.app')
 
 @section('title')
-    Article n°{{ $id }}
+    {{ $article->title }}
 @endsection
 
 @section('content')
-    <h2>Article n°{{ $id }}</h2>
-    <p>Tu consultes les details de l'article avec l'identifiant {{ $id }}.</p>
+    Article n°{{ $article->id }}
+    <x-article :title="$article->title" :description="$article->description" />
 @endsection
